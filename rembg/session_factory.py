@@ -9,9 +9,9 @@ from .sessions.u2net import U2netSession
 
 
 def new_session(
-    model_name: str = "u2net", providers=None, *args, **kwargs
+    model_name: str = "u2net", filename:str = None, providers=None, *args, **kwargs
 ) -> BaseSession:
-    session_class: Type[BaseSession] = U2netSession
+    session_class: Type[BaseSession] = U2netSession(filename)
 
     for sc in sessions_class:
         if sc.name() == model_name:

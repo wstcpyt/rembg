@@ -132,6 +132,7 @@ def remove(
     only_mask: bool = False,
     post_process_mask: bool = False,
     bgcolor: Optional[Tuple[int, int, int, int]] = None,
+    filename:str = None,
     *args: Optional[Any],
     **kwargs: Optional[Any]
 ) -> Union[bytes, PILImage, np.ndarray]:
@@ -151,7 +152,7 @@ def remove(
     img = fix_image_orientation(img)
 
     if session is None:
-        session = new_session("u2net", *args, **kwargs)
+        session = new_session("u2net",filename, *args, **kwargs)
 
     masks = session.predict(img, *args, **kwargs)
     cutouts = []

@@ -48,6 +48,7 @@ extras_require = {
         "uvicorn",
         "watchdog",
     ],
+    "": ["onnxruntime-gpu"]
 }
 
 entry_points = {
